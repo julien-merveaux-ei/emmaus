@@ -98,7 +98,7 @@ function Impact() {
           {IMPACT.map((item, i) => (
             <Reveal key={i} delay={i * 100} className="h-full">
               <Card dark className="grain flex h-full flex-col justify-between gap-10 overflow-hidden">
-                <span className="font-display text-6xl font-extrabold text-white/10">0{i + 1}</span>
+                <span className="font-display text-6xl font-extrabold text-sun">0{i + 1}</span>
                 <div>
                   <p className="font-display text-xl font-bold leading-snug sm:text-2xl">{item.lead}</p>
                   {item.then && <p className="mt-4 border-t border-white/10 pt-4 text-white/65">{item.then}</p>}
