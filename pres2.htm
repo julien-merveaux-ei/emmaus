@@ -1,0 +1,382 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="author" content="EMMAUS Cernay 68">
+<meta name="copyright" content="EMMAUS Cernay 68">
+<meta name="description" content="Communauté EMMAUS de Cernay 68">
+<meta name="keywords" content="Emmaüs,Cernay,abbé,Pierre,accueil,travail,solidarité,démunis,pauvreté,logement,compagnon,bénévole,association,communauté,ami,inconditionnel,OACAS">
+<meta name="revisit-after" content="15 days">
+<meta name="robots" content="pres2,all">
+<meta name="identifier-url" content="http://www.emmaus-cernay68.org">
+<title>EMMAUS Cernay 68</title>
+<!-- Permet l'aperçu en local (images et liens du site). À retirer une fois la page déposée dans /Portail/. -->
+<base href="https://www.emmaus-cernay68.org/Portail/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #14275c;
+    --navy-2: #1f3a85;
+    --sun: #ffd84d;
+    --cream: #fff9e8;
+    --paper: #ffffff;
+    --ink: #1b2033;
+    --muted: #5b6275;
+    --line: #e7e2d3;
+    --link: #1f4fd1;
+    --alert: #c62828;
+    --alert-bg: #fff1f0;
+    --radius: 18px;
+    --shadow: 0 1px 2px rgba(20, 39, 92, .06), 0 8px 24px rgba(20, 39, 92, .08);
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--ink);
+    background: var(--cream);
+  }
+  img { max-width: 100%; height: auto; display: block; }
+  a { color: var(--link); text-decoration: none; }
+  a:hover { text-decoration: underline; text-underline-offset: 3px; }
+  h1, h2, h3 { font-family: "Fraunces", Georgia, serif; color: var(--navy); line-height: 1.2; margin: 0 0 .75rem; }
+  h2 { font-size: 1.35rem; }
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 20px; }
+
+  /* ---------- Navigation ---------- */
+  .nav {
+    position: sticky; top: 0; z-index: 10;
+    background: var(--navy);
+    box-shadow: 0 2px 12px rgba(0,0,0,.18);
+  }
+  .nav .wrap { display: flex; align-items: center; gap: 24px; min-height: 68px; }
+  .nav img { width: 68px; height: 44px; flex: none; }
+  .nav ul { list-style: none; margin: 0; padding: 0; display: flex; gap: 4px; overflow-x: auto; scrollbar-width: none; }
+  .nav ul::-webkit-scrollbar { display: none; }
+  .nav a {
+    display: block; white-space: nowrap;
+    padding: 8px 14px; border-radius: 999px;
+    color: var(--sun); font-weight: 500;
+    transition: background .2s, color .2s;
+  }
+  .nav a:hover { background: var(--sun); color: var(--navy); text-decoration: none; }
+
+  /* ---------- Hero ---------- */
+  .hero { padding: 40px 0 8px; }
+  .hero-grid { display: grid; grid-template-columns: 340px 1fr; gap: 28px; align-items: stretch; }
+  .card {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 28px;
+  }
+  .slideshow { padding: 10px; display: flex; flex-direction: column; gap: 10px; }
+  .slideshow img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 12px; }
+  .update {
+    text-align: center; font-size: .78rem; color: var(--muted);
+    background: var(--cream); border-radius: 10px; padding: 6px 10px;
+  }
+  .welcome { display: flex; flex-direction: column; gap: 18px; padding: 10px; }
+  .welcome a.photo { border-radius: 12px; overflow: hidden; }
+  .welcome a.photo img { width: 100%; aspect-ratio: 451 / 199; object-fit: cover; transition: transform .4s; }
+  .welcome a.photo:hover img { transform: scale(1.03); }
+  .welcome p { margin: 0 18px 14px; font-size: 1.15rem; }
+  .welcome strong { font-family: "Fraunces", Georgia, serif; color: var(--navy); font-size: 1.5rem; display: block; }
+
+  /* ---------- Communiqué ---------- */
+  .notice {
+    margin-top: 28px;
+    display: grid; grid-template-columns: 242px 1fr; gap: 28px; align-items: center;
+    background: var(--alert-bg); border-color: #f6caca; border-left: 6px solid var(--alert);
+  }
+  .notice img { border-radius: 10px; width: 242px; }
+  .notice p { margin: 0 0 14px; color: var(--alert); font-weight: 600; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 10px 18px; border-radius: 999px;
+    background: var(--navy); color: #fff; font-weight: 500; font-size: .95rem;
+  }
+  .btn:hover { background: var(--navy-2); text-decoration: none; }
+
+  /* ---------- Contenu principal ---------- */
+  .main { padding: 28px 0 0; display: grid; grid-template-columns: 1fr 300px; gap: 28px; align-items: start; }
+  .stack { display: grid; gap: 28px; }
+  .section-title { display: flex; align-items: center; gap: 12px; }
+  .section-title::before {
+    content: ""; width: 10px; height: 28px; border-radius: 4px; background: var(--sun); flex: none;
+  }
+  .contact-list { display: grid; gap: 14px; margin: 0; padding: 0; list-style: none; }
+  .contact-list li { padding: 14px 16px; border-radius: 12px; background: var(--cream); }
+  .contact-list .name { font-weight: 600; color: var(--navy); }
+  .contact-list .more { font-size: .9rem; margin-left: 6px; }
+  .links-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+  .chip {
+    padding: 6px 14px; border-radius: 999px; border: 1px solid var(--line);
+    background: var(--paper); font-size: .9rem;
+  }
+  .chip:hover { border-color: var(--link); text-decoration: none; }
+  .card p { margin: 0 0 12px; }
+  .card p:last-child { margin-bottom: 0; }
+  .sub { font-family: "Fraunces", Georgia, serif; font-size: 1.1rem; color: var(--navy); margin: 22px 0 8px; }
+  .zones { margin: 8px 0 14px; padding-left: 0; list-style: none; }
+  .zones li { padding-left: 22px; position: relative; margin-bottom: 4px; }
+  .zones li::before { content: "–"; position: absolute; left: 4px; color: var(--muted); }
+  .fineprint {
+    margin-top: 16px; padding: 14px 16px; border-radius: 12px;
+    background: var(--cream); font-size: .85rem; color: var(--muted);
+  }
+  .fares { display: flex; flex-wrap: wrap; gap: 8px; margin: 8px 0; }
+  .fares span {
+    background: var(--paper); border: 1px solid var(--line); border-radius: 10px;
+    padding: 4px 10px; color: var(--ink); white-space: nowrap;
+  }
+  .hours { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; margin-top: 4px; }
+  .hours div { background: var(--cream); border-radius: 12px; padding: 14px 16px; }
+  .hours b { display: block; color: var(--navy); letter-spacing: .04em; }
+  .hours.sale div { background: var(--navy); color: #fff; }
+  .hours.sale a { color: var(--sun); font-weight: 600; }
+
+  /* ---------- Colonne « Grâce à vous » ---------- */
+  .aside {
+    position: sticky; top: 92px;
+    background: linear-gradient(180deg, var(--navy) 0%, var(--navy-2) 100%);
+    color: #fff; border: none; text-align: center; padding: 28px 24px;
+  }
+  .aside p { margin: 0; font-size: .95rem; }
+  .aside .arrow {
+    width: 2px; height: 44px; margin: 14px auto; background: var(--sun); position: relative;
+  }
+  .aside .arrow::after {
+    content: ""; position: absolute; bottom: -2px; left: 50%; transform: translateX(-50%);
+    border: 7px solid transparent; border-top-color: var(--sun); border-bottom: 0;
+  }
+  .aside .gap { height: 26px; }
+  .aside a img { width: 130px; margin: 6px auto 0; border-radius: 8px; border: 3px solid var(--sun); transition: transform .2s; }
+  .aside a:hover img { transform: translateY(-3px); }
+
+  /* ---------- Accès ---------- */
+  .access { margin-top: 40px; text-align: center; }
+  .access h2 { font-size: 1.6rem; }
+  .access .map { display: inline-block; border-radius: 14px; overflow: hidden; box-shadow: var(--shadow); margin: 8px 0 18px; }
+  .access .map img { width: 363px; }
+  .center-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
+
+  /* ---------- Ressources ---------- */
+  .resources { margin-top: 40px; }
+  .res-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 12px; }
+  .res-grid a, .res-grid .res {
+    display: block; padding: 14px 16px; border-radius: 12px;
+    background: var(--paper); border: 1px solid var(--line); font-weight: 500;
+    transition: border-color .2s, transform .2s;
+  }
+  .res-grid a:hover { border-color: var(--link); transform: translateY(-2px); text-decoration: none; }
+  .res-grid .res { font-weight: 400; color: var(--ink); }
+  .res-grid .res a { display: inline; padding: 0; border: 0; background: none; font-weight: 500; }
+
+  /* ---------- Pied de page ---------- */
+  footer { margin-top: 56px; background: var(--navy); color: #c9d1ea; text-align: center; padding: 32px 20px 40px; font-size: .85rem; }
+  footer p { margin: 4px 0; }
+  footer a { color: var(--sun); }
+  .top {
+    display: inline-grid; place-items: center; width: 44px; height: 44px; margin-bottom: 14px;
+    border-radius: 50%; background: var(--sun); color: var(--navy); font-size: 1.2rem; font-weight: 700;
+  }
+  .top:hover { text-decoration: none; transform: translateY(-2px); }
+  .sep { opacity: .5; margin: 0 6px; }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 900px) {
+    .hero-grid, .main { grid-template-columns: 1fr; }
+    .aside { position: static; }
+    .slideshow { max-width: 360px; margin: 0 auto; width: 100%; }
+  }
+  @media (max-width: 640px) {
+    .wrap { padding: 0 16px; }
+    .card { padding: 20px; }
+    .notice { grid-template-columns: 1fr; text-align: center; }
+    .notice img { margin: 0 auto; }
+    .nav img { display: none; }
+    .welcome p { margin: 0 6px 6px; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav" aria-label="Navigation principale">
+  <div class="wrap">
+    <img src="menugc.gif" alt="" width="68" height="44">
+    <ul>
+      <li><a href="pres4.htm">Lieu de Vie</a></li>
+      <li><a href="pres3.htm">Nous Aider</a></li>
+      <li><a href="../Site/agenda.htm">VENTES</a></li>
+      <li><a href="pres5.htm">Solidarités</a></li>
+      <li><a href="pres5.htm#SOS">SOS Familles</a></li>
+      <li><a href="pres6.htm">La Ferme</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="wrap">
+
+  <!-- Accueil -->
+  <section class="hero">
+    <div class="hero-grid">
+      <div class="card slideshow">
+        <img src="diap01.gif" alt="Diaporama EMMAUS Cernay 68" width="320" height="240">
+        <div class="update">Mise à jour du 05 décembre 2024</div>
+      </div>
+      <div class="card welcome">
+        <a class="photo" href="https://www.google.com/maps/@47.7961577,7.1624255,3a,75y,18.84h,96.09t/data=!3m7!1e1!3m5!1sGm1vCTfpFpFBhVqVIDOiGg!2e0!5s20180901T000000!7i13312!8i6656" target="_blank" rel="noopener">
+          <img src="site.JPG" alt="Le site Emmaüs de Cernay" width="451" height="199">
+        </a>
+        <p><strong>La communauté Emmaüs de Cernay 68</strong>
+          vous accueille au 18 avenue d'Alsace -
+          <a href="https://www.google.com/maps/@47.7961577,7.1624255,3a,75y,18.84h,96.09t/data=!3m7!1e1!3m5!1sGm1vCTfpFpFBhVqVIDOiGg!2e0!5s20180901T000000!7i13312!8i6656" target="_blank" rel="noopener">Street View</a></p>
+      </div>
+    </div>
+
+    <!-- Communiqué -->
+    <div class="card notice">
+      <img src="communique.jpg" alt="Communiqué" width="242" height="136">
+      <div>
+        <p>Indépendamment des violences sexuelles graves et condamnables commises par l'abbé Pierre entre 1950 &amp; 2005,
+          plus que jamais, nous continuons son combat contre toutes les formes d'exclusion, par l'accueil inconditionnel,
+          le travail, le partage et la solidarité, au regard des valeurs fondamentales du mouvement Emmaüs.</p>
+        <a class="btn" href="https://emmaus-france.org/presses/emmaus-international-emmaus-france-et-la-fondation-abbe-pierre-rendent-publics-des-faits-graves-commis-par-labbe-pierre/" target="_blank" rel="noopener">Communiqué d'Emmaüs France sur le sujet &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="main">
+    <div class="stack">
+
+      <!-- Coordonnées -->
+      <section class="card" id="essentiel">
+        <h2 class="section-title">Coordonnées &amp; contacts</h2>
+        <ul class="contact-list">
+          <li>
+            <div class="name">EMMAÜS Cernay 68 - 18 avenue d'Alsace 68700 CERNAY</div>
+            Tél. <a href="tel:+33389754535">03.89.75.45.35</a> ou Fax 03.89.75.73.63 -
+            <a href="mailto:emmaus68@orange.fr">emmaus68@orange.fr</a>
+          </li>
+          <li>
+            <div class="name">SOS Familles Cernay - Tél. <a href="tel:+33389754535">03.89.75.45.35</a><a class="more" href="pres5.htm#SOS">| En savoir plus</a></div>
+            <a href="mailto:sosfamilles68@gmail.com">sosfamilles68@gmail.com</a>
+          </li>
+          <li>
+            <div class="name">MAISON de VACANCES Emmaüs du Lac Blanc (Vosges)<a class="more" href="pres6.htm">| En savoir plus</a></div>
+            342 Blanc Rupt - 68370 ORBEY (France) - Tél / Fax <a href="tel:+33389713371">03.89.71.33.71</a><br>
+            <a href="mailto:ferme.emmaus68@nordnet.fr">ferme.emmaus68@orange.fr</a>
+          </li>
+        </ul>
+        <div class="links-row">
+          <a class="chip" href="pres4.htm#naiss">Qui sommes-nous ?</a>
+          <a class="chip" href="../Archives/dons&amp;achats.pdf" target="_blank" rel="noopener">Flyer de présentation</a>
+          <a class="chip" href="pres14.htm">Plan du site</a>
+          <a class="chip" href="pres5.htm#liens">Liens utiles</a>
+        </div>
+      </section>
+
+      <!-- Récupération -->
+      <section class="card">
+        <h2 class="section-title">Récupération gratuite de marchandises à domicile</h2>
+        <p>Un simple appel téléphonique au <a href="tel:+33389754535">03.89.75.45.35</a> ou un message adressé à
+          <a href="mailto:standardemmauscernay@gmail.com">standardemmauscernay@gmail.com</a> suffisent pour prendre rendez-vous et fixer une date.</p>
+        <p>Toutefois, <u>nous vous recommandons</u> de télécharger ce
+          <a href="Demande%20enlevement.pdf" target="_blank" rel="noopener">formulaire.pdf</a>
+          (par Clic droit + Enregistrer la cible sous), à compléter hors ligne, à sauvegarder pour en garder une trace,
+          puis à nous transmettre en pièce jointe par mail à l'adresse ci-dessus.</p>
+
+        <h3 class="sub">Secteurs de ramassage et de livraison <em style="font-size:.75em">(*)</em></h3>
+        <p>Du mardi au samedi de 7h30 à 12h et de 13h30 à 17h soit :</p>
+        <ul class="zones">
+          <li>Haut-Rhin sud (<u>sauf</u> Colmar &amp; périmètre, Trois-Epis, Orbey &amp; Lapoutroie)</li>
+          <li>le Sundgau et certaines zones frontalières suisses et allemandes.</li>
+        </ul>
+        <p><u>Ramassages non couverts</u> par Cernay : territoires des communautés de communes du Pays Rhin-Brisach et de la vallée de Munster.</p>
+        <p>Voir également détail sur cette <a href="RamLiv.pdf" target="_blank" rel="noopener">carte géographique</a>.</p>
+        <p>Territoire de Belfort : les ramassages sont effectués par la communauté de Montbéliard - Tél. <a href="tel:+33381912700">03.81.91.27.00</a>.</p>
+        <div class="fineprint">
+          <em>(*)</em> Livraison uniquement : montants forfaitaires
+          <div class="fares">
+            <span>de 8 € de 0 à 10 kms</span>
+            <span>12 € de 11 à 20 kms</span>
+            <span>et 16 € de 21 kms et plus</span>
+          </div>
+          au titre d'une contribution aux frais de carburant. Le kilométrage est défini par notre logiciel de transport lors de la prise de rendez-vous.
+        </div>
+      </section>
+
+      <!-- Dépôt / vente -->
+      <section class="card">
+        <h2 class="section-title">Dépôt &amp; retrait des marchandises sur le site de Cernay</h2>
+        <div class="hours">
+          <div><b>DEPÔT</b>du lundi au samedi<br>de 7h30 - 12h &amp; 13h30 - 17h</div>
+          <div><b>RETRAIT</b>du mardi au samedi<br>de 7h30 - 12h &amp; 13h30 - 17h</div>
+        </div>
+        <h3 class="sub">Horaires de vente</h3>
+        <div class="hours sale">
+          <div><a href="../Site/agenda.htm">Mercredi</a> et <a href="../Site/agenda.htm">samedi</a><br>de 9h à 12h et de 14h à 17h</div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Grâce à vous -->
+    <aside class="card aside">
+      <p>Grâce à vous,<br>nous accueillons et hébergeons 48 compagnons en situation de précarité</p>
+      <div class="arrow"></div>
+      <p>qui s'autofinancent par le travail de récupération, de réemploi et de vente des marchandises que vous nous donnez.</p>
+      <div class="gap"></div>
+      <p>Nous sommes présents, avec SOS Familles, dans des actions de solidarité auprès de publics en difficulté</p>
+      <div class="arrow"></div>
+      <p>et contribuons à la solidarité nationale et internationale du mouvement Emmaüs.</p>
+      <div class="gap"></div>
+      <p>Nous représentons une alternative sociale, environnementale et économique à l'exclusion et à l'isolement.</p>
+      <div class="arrow"></div>
+      <a href="pres13.htm"><img src="dons&amp;achats2.jpg" alt="Dons &amp; achats" width="130" height="183"></a>
+    </aside>
+  </div>
+
+  <!-- Accès -->
+  <section class="access" id="carte">
+    <h2>Comment rejoindre notre communauté ?</h2>
+    <a class="map" href="plan01.pdf" target="_blank" rel="noopener"><img src="plan01.jpg" alt="Plan d'accès" width="363" height="180"></a>
+    <div class="center-links">
+      <a class="chip" href="http://www.viamichelin.fr/" target="_blank" rel="noopener">Itinéraire</a>
+      <a class="chip" href="https://www.google.com/maps/@47.7961496,7.162428,3a,60y,345.81h,84.74t/data=!3m6!1e1!3m4!1sFvDB2uoupcuvQmoJ_8aaiA!2e0!7i13312!8i6656" target="_blank" rel="noopener">Google Maps</a>
+      <a class="chip" href="http://meteofrance.com/" target="_blank" rel="noopener">Météo France</a>
+    </div>
+  </section>
+
+  <!-- Ressources -->
+  <section class="resources">
+    <div class="res-grid">
+      <a href="../Archives/EF3mns.mp4" target="_blank" rel="noopener">Emmaüs France en 3 minute (vidéos)</a>
+      <div class="res"><a href="https://www.youtube.com/user/fondationabbepierre" target="_blank" rel="noopener">La Fondation Abbé Pierre (dénomination provisoire) sur YouTube</a> et sur <a href="https://www.facebook.com/Fondation.Abbe.Pierre" target="_blank" rel="noopener">Facebook</a></div>
+      <a href="../Archives/Emmaüs%20aux%20jeunes_2019.pdf" target="_blank" rel="noopener">Présentation d'Emmaüs aux jeunes</a>
+      <a href="../Archives/1954.mp3" target="_blank" rel="noopener">L'appel de 1954</a>
+      <a href="../Archives/stag.mp3" target="_blank" rel="noopener">Poème audio</a>
+      <a href="../Archives/ClipTU.mp4" target="_blank" rel="noopener">Clip Tri d'Union</a>
+      <a href="../Archives/article13.mp4" target="_blank" rel="noopener">Article 13 - La vidéo choc</a>
+      <a href="../Archives/charteEF.pdf" target="_blank" rel="noopener">Charte éthique Emmaüs France</a>
+      <a href="../Archives/guideA5delinquantssolidairesweb.pdf" target="_blank" rel="noopener">Délit de solidarité : le guide</a>
+    </div>
+  </section>
+</div>
+
+<footer>
+  <a class="top" href="pres2.htm" aria-label="Haut de page">&uarr;</a>
+  <p>Notre site ne comporte ni publicités et ni popups.</p>
+  <p>© 2011-2024 EMMAÜS Cernay 68</p>
+  <p><a href="pres8.htm">Mentions légales</a><span class="sep">|</span><a href="pres14.htm">Plan du site</a></p>
+</footer>
+
+</body>
+</html>
